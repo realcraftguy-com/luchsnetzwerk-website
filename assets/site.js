@@ -6,10 +6,7 @@ const LUCHS = {
   discord: "https://dsc.gg/luchsnetzwerk",
   // Vote-Seiten. Leere url = Karte wird als „Bald verfügbar“ angezeigt.
   votes: [
-    { name: "minecraft-server.eu", url: "" },
-    { name: "minecraft-serverlist.net", url: "" },
-    { name: "serverliste.net", url: "" },
-    { name: "minecraft-server-list.com", url: "" },
+    { name: "minecraft-server.eu", url: "https://minecraft-server.eu/vote/index/23C1C" },
   ],
   // Live-Status über api.mcsrvstat.us (in der Datenschutzerklärung erwähnt)
   statusAbfragen: true,
