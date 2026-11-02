@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voten – Luchs</title>
+  <meta name="description" content="Für Luchs auf Serverlisten voten und Belohnungen in CityBuild erhalten.">
+  <meta name="theme-color" content="#0d0b09">
+  <link rel="icon" href="assets/luchs.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><img src="assets/luchs.svg" alt="" width="34" height="34">LUCHS</a>
+      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span></button>
+      <nav class="nav-links">
+        <a href="index.html">Start</a>
+        <a href="index.html#joinen">Joinen</a>
+        <a href="vote.html" aria-current="page">Voten</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a class="btn btn-sm btn-discord magnetic" data-discord href="#"><span data-discord-label>Discord</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head"><div class="wrap">
+      <span class="eyebrow">Voten</span>
+      <h1 class="display">Vote für <span class="grad-text">Luchs.</span></h1>
+      <p class="lead">Jeder Vote bringt uns auf den Serverlisten nach oben und dir Belohnungen im Spiel. Du kannst auf jeder Seite einmal pro Tag voten.</p>
+    </div></section>
+    <section class="section" style="padding-top:1rem"><div class="wrap">
+      <div class="vote-grid" id="vote-liste"></div>
+      <p class="note">Gib beim Voten <strong>genau deinen Minecraft-Namen</strong> ein. Die Belohnung landet automatisch bei dir, sobald du auf CityBuild bist, auch wenn du beim Voten offline warst.</p>
+    </div></section>
+    <section class="section section-alt"><div class="wrap">
+      <div class="section-head reveal"><span class="eyebrow">Belohnungen</span><h2 class="h2">Das bringt dir dein Vote.</h2></div>
+      <div class="grid grid-3">
+        <article class="card tilt reveal"><h3 class="h3">Tägliche Belohnung</h3><p>Für jeden Vote bekommst du auf CityBuild eine Belohnung gutgeschrieben.</p></article>
+        <article class="card tilt reveal"><h3 class="h3">Vote-Serie</h3><p>Vote mehrere Tage am Stück und erhalte einen Serien-Bonus. Lässt du einen Tag aus, beginnt die Serie von vorn.</p></article>
+        <article class="card tilt reveal"><h3 class="h3">Vote-Party</h3><p>Erreicht das Netzwerk genug Votes, startet eine Vote-Party mit Belohnungen für alle, die gerade online sind.</p></article>
+      </div>
+      <p class="note reveal">Im Spiel: <code>/vote</code> zeigt alle Links und deinen Stand, <code>/vote top</code> die besten Voter des Monats.</p>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <a class="brand" href="index.html"><img src="assets/luchs.svg" alt="" width="34" height="34">LUCHS</a>
+        <nav>
+          <a href="index.html#joinen">Joinen</a>
+          <a href="vote.html">Voten</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+      <p class="disclaimer">© <span id="jahr">2026</span> Luchs-Netzwerk. Kein offizielles Minecraft-Produkt. Nicht von Mojang oder Microsoft genehmigt oder mit Mojang oder Microsoft verbunden. „Minecraft“ ist eine Marke von Mojang Synergies AB.</p>
+    </div>
+  </footer>
+  <script src="assets/site.js"></script>
+  <script src="assets/anim.js"></script>
+</body>
+</html>
