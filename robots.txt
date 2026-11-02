@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_quelle/
+
+Sitemap: https://realcraftguy-com.github.io/luchsnetzwerk-website/sitemap.xml

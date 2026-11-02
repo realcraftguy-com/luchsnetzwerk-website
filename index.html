@@ -1,290 +1,243 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Luchs – Minecraft-Netzwerk</title>
-  <meta name="description" content="Luchs ist ein deutsches Minecraft-Netzwerk mit CityBuild, Minigames und eigenen Plugins für Java Edition 26.2. Kein Pay2Win.">
-  <meta name="theme-color" content="#0d0b09">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Luchs – Minecraft-Netzwerk für Java 26.2</title>
+  <meta name="description" content="Luchs ist ein deutsches Minecraft-Netzwerk mit CityBuild, Minigames und einer eigenen Lobby-Insel. Eigene Plugins, 3D-Minions, kein Pay2Win. Java Edition 26.2.">
+  <meta name="theme-color" content="#0b0a09">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://realcraftguy-com.github.io/luchsnetzwerk-website/">
   <link rel="icon" href="assets/luchs.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=202611021045">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luchs-Netzwerk">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Luchs – Minecraft-Netzwerk für Java 26.2">
+  <meta property="og:description" content="Luchs ist ein deutsches Minecraft-Netzwerk mit CityBuild, Minigames und einer eigenen Lobby-Insel. Eigene Plugins, 3D-Minions, kein Pay2Win. Java Edition 26.2.">
+  <meta property="og:url" content="https://realcraftguy-com.github.io/luchsnetzwerk-website/">
+  <meta property="og:image" content="https://realcraftguy-com.github.io/luchsnetzwerk-website/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/style.css?v=14953823c1">
+  <script src="assets/site.js?v=14953823c1" defer></script>
+  <script src="assets/anim.js?v=14953823c1" defer></script>
+  <link rel="preload" as="image" type="image/avif" imagesrcset="assets/img/hero-1000.avif 1000w, assets/img/hero-2000.avif 2000w" imagesizes="(max-width: 760px) 150vw, 70vw"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Luchs-Netzwerk","url":"https://realcraftguy-com.github.io/luchsnetzwerk-website/","inLanguage":"de","publisher":{"@type":"Organization","name":"Luchs-Netzwerk","logo":"https://realcraftguy-com.github.io/luchsnetzwerk-website/assets/icon-512.png","sameAs":["https://dsc.gg/luchsnetzwerk"]}}</script>
 </head>
-<body>
-  <div class="progress" aria-hidden="true"></div>
+<body class="seite-start">
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html"><img src="assets/luchs.svg" alt="" width="34" height="34">LUCHS</a>
-      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span></button>
-      <nav class="nav-links">
-        <a href="index.html" aria-current="page">Start</a>
-        <a href="index.html#joinen">Joinen</a>
-        <a href="vote.html">Voten</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a class="btn btn-sm btn-discord magnetic" data-discord href="#"><span data-discord-label>Discord</span></a>
+      <a class="brand" href="index.html" aria-label="Luchs – zur Startseite"><img src="assets/luchs.svg" alt="" width="30" height="30">LUCHS</a>
+      <nav class="nav-links" id="hauptmenue" aria-label="Hauptmenü">
+          <a href="index.html#modi">Spielmodi</a>
+          <a href="features.html">Features</a>
+          <a href="vote.html">Voten</a>
+          <a href="status.html">Status</a>
+          <a href="regeln.html">Regeln</a>
       </nav>
+      <div class="nav-actions">
+        <a class="btn btn-sm btn-glass nav-discord" data-discord href="https://dsc.gg/luchsnetzwerk"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.6 19.6 0 0 0-4.9 1.5C.6 9 0 13.6.3 18a19.7 19.7 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 11.9 0l.5.4-2 1 1.3 2a19.6 19.6 0 0 0 6-3c.4-5.1-.7-9.6-3.5-13.6ZM8.7 15.3c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.1 1 2.1 2.3-.9 2.3-2.1 2.3Zm6.6 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.1 1 2.1 2.3-.9 2.3-2.1 2.3Z"/></svg><span>Discord</span></a>
+        <a class="btn btn-sm" href="index.html#joinen">Jetzt spielen</a>
+        <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenue"><span></span></button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="hero">
-      <canvas class="embers" aria-hidden="true"></canvas>
-      <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="cursor-glow" aria-hidden="true"></div>
-
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow fade-up" style="--d:.1s">Minecraft Java Edition · <span data-luchs="version">26.2</span></span>
-          <h1 class="display split">
-            <span class="line">Schleich dich rein.</span>
-            <span class="line grad-text">Werde Teil vom Rudel.</span>
+  <main id="inhalt">
+<section class="hero">
+      <div class="hero-bild"><picture><source type="image/avif" srcset="assets/img/hero-1000.avif 1000w, assets/img/hero-2000.avif 2000w" sizes="(max-width: 760px) 150vw, 70vw"><source type="image/webp" srcset="assets/img/hero-1000.webp 1000w, assets/img/hero-2000.webp 2000w" sizes="(max-width: 760px) 150vw, 70vw"><img src="assets/img/hero-2000.webp" alt="Die Luchsinsel, die Lobby des Netzwerks: eine schwebende Insel mit großer Luchs-Statue, Berg mit Wasserfall und Luftschiff" width="1728" height="892" fetchpriority="high"></picture></div>
+      <div class="wrap">
+        <div class="hero-inhalt">
+          <span class="eyebrow ein" style="--d:.05s">Minecraft Java Edition · <span data-luchs="version">26.2</span></span>
+          <h1 class="display">
+            <span class="line ein" style="--d:.12s">Schleich dich rein.</span>
+            <span class="line ein accent" style="--d:.22s">Werde Teil vom Rudel.</span>
           </h1>
-          <p class="lead fade-up" style="--d:.7s">Ein deutsches Minecraft-Netzwerk mit CityBuild, über sechs Minigames, Clans und eigenen Plugins, die es nirgendwo sonst gibt. Und: <strong>kein Pay2Win.</strong></p>
+          <p class="lead ein" style="--d:.34s">Ein deutsches Minecraft-Netzwerk mit CityBuild, Minigames und einer Lobby, die du erkunden willst. Fast alles ist selbst programmiert, und Ränge verdienst du dir im Spiel. <strong>Kein Pay2Win.</strong></p>
 
-          <div class="ip-pill fade-up" style="--d:.85s">
-            <span class="ip-dot" aria-hidden="true"></span>
-            <span class="mono" data-luchs="adresse">practically-each.tun.ply.gg:60202</span>
-            <button class="btn magnetic" data-copy type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-              <span data-copy-label>Kopieren</span>
+          <div class="hero-karte glass sheen ein" style="--d:.46s">
+            <div class="ip">
+              <small>Serveradresse</small>
+              <span class="mono" data-luchs="adresse">practically-each.tun.ply.gg:60202</span>
+            </div>
+            <span class="trenner" aria-hidden="true"></span>
+            <span class="status-pill" data-status-pill data-status="loading" aria-live="polite">Status wird geladen …</span>
+            <button class="btn btn-accent" data-copy type="button">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span data-copy-label>Adresse kopieren</span>
             </button>
           </div>
-          <div class="status fade-up" style="--d:.95s" data-status="loading"><span data-status-text>Status wird geladen …</span></div>
 
-          <div class="hero-actions fade-up" style="--d:1.05s">
-            <a class="btn btn-ghost magnetic" href="#joinen">So joinst du</a>
-            <a class="btn btn-ghost magnetic" href="vote.html">Voten &amp; Belohnungen</a>
-          </div>
-        </div>
-
-        <div class="hero-visual fade-up" style="--d:.3s">
-          <div class="moon" data-parallax="-0.08" aria-hidden="true"></div>
-          <div class="lynx-wrap" data-parallax="-0.15">
-            <svg class="lynx" viewBox="0 0 120 120" role="img" aria-label="Luchs-Maskottchen">
-              <defs>
-                <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B54A"/><stop offset="1" stop-color="#E8562A"/></linearGradient>
-              </defs>
-              <g class="ear ear-l">
-                <path d="M32 19C31 11 29 6 30 1c4 6 6 11 7 18Z" fill="#1d0f06"/>
-                <path d="M22 56 34 16l22 22Z" fill="url(#fur)"/>
-                <path d="m28 50 7-26 15 14Z" fill="#3a1d0b"/>
-                <path d="m31 48 5-16 8 8Z" fill="#fbe3c0" opacity=".8"/>
-              </g>
-              <g class="ear ear-r">
-                <path d="M88 19c1-8 3-13 2-18-4 6-6 11-7 18Z" fill="#1d0f06"/>
-                <path d="M98 56 86 16 64 38Z" fill="url(#fur)"/>
-                <path d="m92 50-7-26-15 14Z" fill="#3a1d0b"/>
-                <path d="m89 48-5-16-8 8Z" fill="#fbe3c0" opacity=".8"/>
-              </g>
-              <path d="M28 46c10-14 54-14 64 0l10 16 14 12-14 2 8 14-16-2c-6 14-18 22-34 22s-28-8-34-22l-16 2 8-14-14-2 14-12Z" fill="url(#fur)"/>
-              <path d="M26 70c8 10 18 14 34 14s26-4 34-14l8 6 8 14-16-2c-6 14-18 22-34 22s-28-8-34-22l-16 2 8-14Z" fill="#fbe3c0"/>
-              <path d="M20 80l11 4M100 80l-11 4M18 87h11M102 87H91" stroke="#1d0f06" stroke-width="2" stroke-linecap="round"/>
-              <path d="M56 38l1 12M64 38l-1 12M50 40l2 8M70 40l-2 8" stroke="#8a3a17" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
-              <g fill="#8a3a17" opacity=".5"><circle cx="34" cy="64" r="1.4"/><circle cx="29" cy="70" r="1.2"/><circle cx="86" cy="64" r="1.4"/><circle cx="91" cy="70" r="1.2"/></g>
-              <path d="M46 76c0-8 28-8 28 0 0 14-6 20-14 20s-14-6-14-20Z" fill="#fff4e3"/>
-              <g class="eye">
-                <path d="M33 60c5-8 17-8 21 0-4 5-16 6-21 0Z" fill="#1d0f06"/>
-                <path d="M35.5 60c4.5-6 12.5-6 16 0-3.5 3.5-11.5 4-16 0Z" fill="#ffd257"/>
-                <g class="pupil"><ellipse cx="43.5" cy="59.5" rx="2" ry="3.6" fill="#1d0f06"/><circle cx="46" cy="57.5" r="1.1" fill="#fff"/></g>
-              </g>
-              <g class="eye">
-                <path d="M87 60c-5-8-17-8-21 0 4 5 16 6 21 0Z" fill="#1d0f06"/>
-                <path d="M84.5 60c-4.5-6-12.5-6-16 0 3.5 3.5 11.5 4 16 0Z" fill="#ffd257"/>
-                <g class="pupil"><ellipse cx="76.5" cy="59.5" rx="2" ry="3.6" fill="#1d0f06"/><circle cx="79" cy="57.5" r="1.1" fill="#fff"/></g>
-              </g>
-              <path d="M36 63l-4 7M84 63l4 7" stroke="#1d0f06" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M53 74c3-3 11-3 14 0-2 4-5 6-7 6s-5-2-7-6Z" fill="#c65a3e" stroke="#1d0f06" stroke-width="1.2"/>
-              <path d="M60 80v5m-8 1c3 3 6 2 8-1 2 3 5 4 8 1" stroke="#1d0f06" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <g fill="#1d0f06"><circle cx="52" cy="82" r=".9"/><circle cx="49" cy="79" r=".9"/><circle cx="68" cy="82" r=".9"/><circle cx="71" cy="79" r=".9"/></g>
-            </svg>
+          <div class="hero-aktionen ein" style="--d:.56s">
+            <a class="btn btn-glass" href="#joinen">So joinst du</a>
+            <a class="btn btn-glass" data-discord href="https://dsc.gg/luchsnetzwerk">Discord beitreten</a>
           </div>
         </div>
       </div>
-
-      <div class="forest" aria-hidden="true">
-        <svg class="layer" data-parallax="0.12" data-trees="back" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice"></svg>
-        <svg class="layer" data-parallax="0.24" data-trees="mid" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice"></svg>
-        <svg class="layer" data-parallax="0.4" data-trees="front" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice"></svg>
-      </div>
-      <a class="scroll-cue" href="#modi" aria-label="Nach unten scrollen"><span></span></a>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-row"><div class="marquee-track">
-        <span>CityBuild</span><span>BedWars</span><span>SkyWars</span><span>Aura</span><span>Spleef</span><span>Gungame</span><span>1vs1</span><span>Clans</span><span>Jobs</span><span>Minions</span><span>Auktionshaus</span><span>Kisten</span>
-        <span>CityBuild</span><span>BedWars</span><span>SkyWars</span><span>Aura</span><span>Spleef</span><span>Gungame</span><span>1vs1</span><span>Clans</span><span>Jobs</span><span>Minions</span><span>Auktionshaus</span><span>Kisten</span>
-      </div></div>
-      <div class="marquee-row reverse"><div class="marquee-track">
-        <span>Schattenluchs</span><span>Plots</span><span>Ranked</span><span>Party</span><span>Freunde</span><span>Vote-Party</span><span>Bohrer V4</span><span>Farmwelt</span><span>Kopfgeld</span><span>Lotto</span><span>Geheimnisse</span><span>Enterhaken</span>
-        <span>Schattenluchs</span><span>Plots</span><span>Ranked</span><span>Party</span><span>Freunde</span><span>Vote-Party</span><span>Bohrer V4</span><span>Farmwelt</span><span>Kopfgeld</span><span>Lotto</span><span>Geheimnisse</span><span>Enterhaken</span>
-      </div></div>
-    </div>
-
-    <section class="section stats-section">
-      <div class="wrap stats">
-        <div class="stat reveal"><b data-count="3">0</b><span>Server im Netzwerk</span></div>
-        <div class="stat reveal"><b data-count="6" data-suffix="+">0</b><span>Minigames</span></div>
-        <div class="stat reveal"><b data-count="6">0</b><span>Jobs in CityBuild</span></div>
-        <div class="stat reveal"><b data-count="0" data-live>–</b><span>Spieler gerade online</span></div>
+    <section class="section-s" aria-label="Netzwerk in Zahlen">
+      <div class="wrap">
+        <div class="kennzahlen reveal">
+          <div class="kennzahl"><b data-live="spieler">–</b><span>Spieler gerade online</span></div>
+          <div class="kennzahl"><b>3</b><span>Server im Netzwerk</span></div>
+          <div class="kennzahl"><b>6</b><span>Minigames spielbar</span></div>
+          <div class="kennzahl"><b>20+</b><span>eigene Plugins</span></div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="modi">
       <div class="wrap">
-        <div class="section-head reveal">
+        <div class="kopf reveal">
           <span class="eyebrow">Spielmodi</span>
-          <h2 class="h2">Drei Welten, ein Netzwerk.</h2>
-          <p class="lead">Du startest in der Lobby und wechselst über den Navigator in jeden Modus. Freunde, Party und Clan nimmst du überallhin mit.</p>
+          <h2 class="h2">Drei Welten. Ein Rudel.</h2>
+          <p class="lead">Jede Welt ist eine eigene schwebende Insel, komplett per Code gebaut. Freunde, Party und Clan nimmst du überallhin mit.</p>
         </div>
-
-        <div class="grid grid-3">
-          <article class="card tilt reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
-            <h3 class="h3">CityBuild</h3>
-            <p>Bau auf deinem Plot, steig in Jobs auf, handle mit anderen und jag den Schattenluchs.</p>
-            <ul>
-              <li>Plots, Homes und Spieler-Warps</li>
-              <li>6 Jobs, Quests und tägliche Belohnung</li>
-              <li>Kistenshops, Auktionshaus, Kisten</li>
-              <li>Farmwelt, Events, Kopfgeld und Lotto</li>
-            </ul>
-          </article>
-          <article class="card tilt reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 17.5 6-6-3-3-6 6M3 21l4.5-4.5M6 14l4 4M12.5 5.5l-6 6 3 3 6-6"/></svg></div>
-            <h3 class="h3">Minigames</h3>
-            <p>Schnelle Runden für zwischendurch, mit Ranked-Wertung, Bestenlisten und Kosmetik.</p>
-            <ul>
-              <li>BedWars, SkyWars, Aura, Spleef</li>
-              <li>Gungame und 1vs1-Duelle</li>
-              <li>Map-Abstimmung und Zuschauen</li>
-              <li>Bald: SurvivalGames, JumpLeague, MasterBuilders</li>
-            </ul>
-          </article>
-          <article class="card tilt reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3 class="h3">Lobby</h3>
-            <p>Mehr als ein Wartebereich: Hier gibt es Gadgets, Geheimnisse und begehbare Portale.</p>
-            <ul>
-              <li>Navigator und Doppelsprung</li>
-              <li>Gadgets wie der Enterhaken</li>
-              <li>Versteckte Geheimnisse mit Coins</li>
-              <li>Portale direkt in jeden Modus</li>
-            </ul>
-          </article>
+        <div class="modi">
+          <a class="modus modus-gross reveal" href="citybuild.html">
+            <picture><source type="image/avif" srcset="assets/img/citybuild-800.avif 800w, assets/img/citybuild-1600.avif 1600w" sizes="100vw"><source type="image/webp" srcset="assets/img/citybuild-800.webp 800w, assets/img/citybuild-1600.webp 1600w" sizes="100vw"><img src="assets/img/citybuild-1600.webp" alt="Die Luchsstadt: Marktplatz mit goldenem Luchs-Brunnen, Rathaus mit Glockenturm und Kisten-Pavillon" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+            <span class="eyebrow">CityBuild</span>
+            <h3 class="h1">Die Luchsstadt.</h3>
+            <p>Bau auf deinem Plot, steig in sechs Jobs auf, handle im Auktionshaus und lass Minions für dich arbeiten. Nachts jagt der Schattenluchs durch die Farmwelt.</p>
+            <div class="modus-tags"><span class="tag">Plots</span><span class="tag">6 Jobs</span><span class="tag">Auktionshaus</span><span class="tag">Minions</span><span class="tag">Kisten</span></div>
+            <span class="link-arrow">CityBuild entdecken</span>
+          </a>
+          <a class="modus reveal" href="minigames.html">
+            <picture><source type="image/avif" srcset="assets/img/minigames-800.avif 800w, assets/img/minigames-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 50vw"><source type="image/webp" srcset="assets/img/minigames-800.webp 800w, assets/img/minigames-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 50vw"><img src="assets/img/minigames-1600.webp" alt="Die Luchs-Arena: Minigame-Hub mit goldenem Pokal und Portalen zu BedWars, SkyWars und Aura" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+            <span class="eyebrow">Minigames</span>
+            <h3 class="h2">Die Luchs-Arena.</h3>
+            <p>BedWars, SkyWars, Aura, Spleef, Gungame und 1vs1. Mit Ranked, Bestenlisten und Kosmetik.</p>
+            <span class="link-arrow">Minigames ansehen</span>
+          </a>
+          <a class="modus reveal" href="lobby.html">
+            <picture><source type="image/avif" srcset="assets/img/lobby-800.avif 800w, assets/img/lobby-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 50vw"><source type="image/webp" srcset="assets/img/lobby-800.webp 800w, assets/img/lobby-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 50vw"><img src="assets/img/lobby-1600.webp" alt="Die Luchsinsel von oben mit Nebeninseln, Hängebrücken und Pilzinsel" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+            <span class="eyebrow">Lobby</span>
+            <h3 class="h2">Die Luchsinsel.</h3>
+            <p>Eine 45 Blöcke hohe Luchs-Statue, 20 Geheimnisse, ein Parkour über den Wolken und Gadgets wie der Enterhaken.</p>
+            <span class="link-arrow">Lobby erkunden</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="warum">
+    <section class="section section-dunkel">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Warum Luchs?</span>
-          <h2 class="h2">Gemacht von Spielern,<br><span class="grad-text">nicht von einem Shop.</span></h2>
-          <p class="lead">Fast alles auf Luchs ist selbst programmiert. Das merkst du an jeder Ecke.</p>
+        <div class="kopf reveal">
+          <span class="eyebrow">Nur bei Luchs</span>
+          <h2 class="h2">Selbst gebaut.<br><span class="muted">Bis ins letzte Pixel.</span></h2>
         </div>
-
-        <div class="bento">
-          <article class="tile tile-wide tilt reveal">
-            <span class="tile-badge">Fair</span>
-            <h3 class="h3">Kein Pay2Win</h3>
-            <p>Ränge verdienst du dir im Spiel: mit Spielzeit, Level und Coins. Niemand kauft sich Vorteile mit echtem Geld.</p>
-            <div class="rank-ladder" aria-hidden="true"><i>Spieler</i><i>Premium</i><i>Diamond</i><i>Ultra</i><i>Legende</i><i>Supreme</i></div>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">🐾</span>
-            <h3 class="h3">3D-Luchs-Minions</h3>
-            <p>Animierte Helfer auf deinem Plot, die Erze, Holz und Ernte sammeln. Auch wenn du offline bist.</p>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">🌑</span>
-            <h3 class="h3">Der Schattenluchs</h3>
-            <p>Nachts streift ein eigener Mob durch die Farmwelt. Mit Glück triffst du den Alpha mit Bossleiste.</p>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">⛏️</span>
-            <h3 class="h3">Eigene Items</h3>
-            <p>Bohrer bis V4, Planierer, Spaltaxt: Werkzeuge mit Seltenheit und Sternen, die mit dir aufsteigen.</p>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">🛡️</span>
-            <h3 class="h3">Anti-Cheat</h3>
-            <p>Grim-Anti-Cheat auf jedem Server und ein Team, das Reports wirklich bearbeitet.</p>
-          </article>
-          <article class="tile tile-wide tilt reveal">
-            <span class="tile-badge">Netzwerkweit</span>
-            <h3 class="h3">Freunde, Party und Clans</h3>
-            <p>Lade Freunde ein, zieh als Party in eine Minigame-Runde und gründe einen Clan mit eigenem Tag, Kasse und Wertung.</p>
-            <div class="avatars" aria-hidden="true"><i></i><i></i><i></i><i></i><i>+</i></div>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">🎨</span>
-            <h3 class="h3">Eigene Texturen</h3>
-            <p>Ein eigenes Ressourcenpaket mit Menüs, Möbeln und Modellen. Wird beim Joinen automatisch geladen.</p>
-          </article>
-          <article class="tile tilt reveal">
-            <span class="tile-emoji" aria-hidden="true">📅</span>
-            <h3 class="h3">Tägliche Belohnung</h3>
-            <p>Login-Serie, Tages- und Wochenquests: Wer regelmäßig vorbeischaut, kommt schneller voran.</p>
-          </article>
-          <article class="tile tile-wide tilt reveal">
-            <span class="tile-badge">Gemeinsam</span>
-            <h3 class="h3">Votes &amp; Vote-Party</h3>
-            <p>Jeder Vote bringt dir Belohnungen und Serien-Bonus. Erreicht das Netzwerk genug Votes, feiern alle Online-Spieler eine Vote-Party.</p>
-            <a class="btn btn-sm magnetic" href="vote.html" style="align-self:flex-start;margin-top:1.25rem">Jetzt voten</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="joinen">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Joinen</span>
-          <h2 class="h2">In vier Schritten im Spiel.</h2>
-          <p class="lead">Du brauchst die <strong>Java Edition</strong> mit einem gekauften Minecraft-Account. Am besten spielst du auf Version <strong data-luchs="version">26.2</strong>.</p>
-        </div>
-
-        <div class="steps">
-          <div class="card step tilt reveal">
-            <h3 class="h3">Version wählen</h3>
-            <p>Öffne den Minecraft Launcher, wähle unter <em>Installationen</em> die Version <code data-luchs="version">26.2</code> und starte das Spiel.</p>
-          </div>
-          <div class="card step tilt reveal">
-            <h3 class="h3">Mehrspieler öffnen</h3>
-            <p>Klick im Hauptmenü auf <em>Mehrspieler</em> und dann auf <em>Server hinzufügen</em>.</p>
-          </div>
-          <div class="card step tilt reveal">
-            <h3 class="h3">Adresse eintragen</h3>
-            <p>Gib als Serveradresse <code data-luchs="adresse">practically-each.tun.ply.gg:60202</code> ein und speichere mit <em>Fertig</em>.</p>
-            <button class="btn btn-sm btn-ghost copy-mini" data-copy type="button"><span data-copy-label>Adresse kopieren</span></button>
-          </div>
-          <div class="card step tilt reveal">
-            <h3 class="h3">Paket annehmen</h3>
-            <p>Beim ersten Betreten fragt das Spiel nach dem Luchs-Ressourcenpaket. Klick auf <em>Ja</em>, sonst fehlen Items und Texturen.</p>
+        <div class="buehne reveal">
+          <div class="buehne-bild"><picture><source type="image/avif" srcset="assets/img/minion.avif"><img src="assets/img/minion.webp" alt="Luchs-Minion: ein kleiner Luchs mit roter Schleife und Spitzhacke" width="720" height="720" loading="lazy" decoding="async"></picture></div>
+          <div>
+            <span class="eyebrow">LuchsMinions</span>
+            <h3 class="h2">Helfer, die nie schlafen.</h3>
+            <p class="lead">Kleine 3D-Luchse arbeiten auf deinem Plot als Bergarbeiter, Holzfäller, Bauer oder Jäger. Sie sammeln weiter, auch wenn du offline bist.</p>
+            <a class="link-arrow" href="features.html#minions" style="margin-top:1.5rem">Mehr über Minions</a>
           </div>
         </div>
-
-        <div class="note reveal">
-          <strong>Gut zu wissen:</strong> Clients mit 26.3 kommen ebenfalls rein. Die Bedrock Edition (Handy, Konsole, Windows-Store-Version) wird nicht unterstützt. Klappt etwas nicht, melde dich auf <a data-discord href="#"><span data-discord-label>Discord</span></a> oder über die <a href="kontakt.html">Kontaktseite</a>.
+        <div class="buehne umgekehrt reveal" style="--glow: rgba(160, 110, 255, 0.18)">
+          <div class="buehne-bild" style="--glow: rgba(160, 110, 255, 0.18)"><picture><source type="image/avif" srcset="assets/img/schattenluchs.avif"><img src="assets/img/schattenluchs.webp" alt="Der Schattenluchs: ein dunkler Luchs mit violett leuchtenden Augen" width="720" height="720" loading="lazy" decoding="async"></picture></div>
+          <div>
+            <span class="eyebrow">LuchsMobs</span>
+            <h3 class="h2">Der Schattenluchs.</h3>
+            <p class="lead">Ein eigener Mob mit animiertem 3D-Modell. Er streift nachts durch die Farmwelt und greift mit Sprüngen an. Mit Glück triffst du den Alpha mit Bossleiste.</p>
+            <a class="link-arrow" href="features.html#schattenluchs" style="margin-top:1.5rem">Mehr über den Schattenluchs</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap grid grid-2">
-        <div class="cta tilt reveal">
+      <div class="wrap">
+        <div class="kopf reveal">
+          <span class="eyebrow">Warum Luchs?</span>
+          <h2 class="h2">Fair. Durchdacht. Gemeinsam.</h2>
+        </div>
+        <div class="punkte reveal" data-staffel>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M4 14h6l-3-6-3 6ZM14 14h6l-3-6-3 6Z"/></svg>
+            <h3 class="h4">Kein Pay2Win</h3>
+            <p>Ränge von Premium bis Supreme verdienst du dir mit Spielzeit, Level und Coins.</p>
+          </div>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+            <h3 class="h4">Über 20 eigene Plugins</h3>
+            <p>Jobs, Items, Minions, Minigames, Freunde und Clans: alles aus eigener Hand.</p>
+          </div>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg>
+            <h3 class="h4">Netzwerkweit zusammen</h3>
+            <p>Freunde, Party, private Nachrichten und Clans funktionieren auf jedem Server.</p>
+          </div>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3 class="h4">Anti-Cheat & Reports</h3>
+            <p>Grim-Anti-Cheat auf allen Servern und <code>/report</code> mit Chatverlauf fürs Team.</p>
+          </div>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <h3 class="h4">Eigene Musik</h3>
+            <p>Selbst komponierte Lieder, die je nach Welt, Tageszeit und Spielsituation wechseln.</p>
+          </div>
+          <div class="punkt">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <h3 class="h4">38 Geheimnisse</h3>
+            <p>Versteckte Orte in Lobby, Stadt und Arena. Jedes bringt Coins, alle zusammen einen Bonus.</p>
+          </div>
+        </div>
+        <p style="margin-top:2rem"><a class="link-arrow" href="features.html">Alle Features</a></p>
+      </div>
+    </section>
+
+    <section class="section section-dunkel" id="joinen">
+      <div class="wrap">
+        <div class="kopf reveal">
+          <span class="eyebrow">Joinen</span>
+          <h2 class="h2">In vier Schritten im Spiel.</h2>
+          <p class="lead">Du brauchst die <strong>Java Edition</strong> mit einem gekauften Minecraft-Account. Am besten spielst du auf Version <strong data-luchs="version">26.2</strong>.</p>
+        </div>
+        <div class="schritte reveal" data-staffel>
+          <div class="schritt">
+            <h3 class="h4">Version wählen</h3>
+            <p>Im Minecraft Launcher unter <em>Installationen</em> die Version <code data-luchs="version">26.2</code> wählen und starten.</p>
+          </div>
+          <div class="schritt">
+            <h3 class="h4">Mehrspieler öffnen</h3>
+            <p>Im Hauptmenü auf <em>Mehrspieler</em> und dann auf <em>Server hinzufügen</em> klicken.</p>
+          </div>
+          <div class="schritt">
+            <h3 class="h4">Adresse eintragen</h3>
+            <p>Als Serveradresse <code data-luchs="adresse">practically-each.tun.ply.gg:60202</code> eingeben und mit <em>Fertig</em> speichern.</p>
+            <button class="link-btn" data-copy type="button"><span data-copy-label>Adresse kopieren</span></button>
+          </div>
+          <div class="schritt">
+            <h3 class="h4">Paket annehmen</h3>
+            <p>Beim ersten Betreten das Luchs-Ressourcenpaket mit <em>Ja</em> annehmen. Sonst fehlen Modelle, Items und Musik.</p>
+          </div>
+        </div>
+        <p class="hinweis reveal"><strong>Gut zu wissen:</strong> Clients mit 26.3 kommen ebenfalls rein. Die Bedrock Edition (Handy, Konsole, Windows-Store) wird nicht unterstützt. Probleme? Frag auf <a data-discord href="https://dsc.gg/luchsnetzwerk">Discord</a> oder schau auf die <a href="status.html">Statusseite</a>.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap duo">
+        <div class="banner reveal">
           <span class="eyebrow">Voten</span>
           <h2 class="h2">Jeder Vote zählt.</h2>
-          <p class="lead">Vote täglich für Luchs auf minecraft-server.eu. Du bekommst Belohnungen in CityBuild, und bei genug Votes startet für alle eine Vote-Party.</p>
-          <a class="btn magnetic" href="vote.html">Jetzt voten</a>
+          <p class="lead">250 Coins und ein Schlüssel für die LuchsKiste, jeden Tag. Wer dranbleibt, bekommt Premium- und Legendäre Kisten.</p>
+          <a class="btn btn-accent" href="vote.html">Jetzt voten</a>
+          <div class="banner-bild"><picture><source type="image/avif" srcset="assets/img/kiste-luchs.avif"><img src="assets/img/kiste-luchs.webp" alt="" width="720" height="720" loading="lazy" decoding="async"></picture></div>
         </div>
-        <div class="cta cta-discord tilt reveal">
+        <div class="banner banner-discord reveal">
           <span class="eyebrow">Community</span>
           <h2 class="h2">Komm auf den Discord.</h2>
           <p class="lead">Neuigkeiten, Events, Support und Bewerbungen fürs Team laufen über unseren Discord-Server.</p>
-          <a class="btn btn-discord magnetic" data-discord href="#">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.6 19.6 0 0 0-4.9 1.5C.6 9 0 13.6.3 18a19.7 19.7 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 11.9 0l.5.4-2 1 1.3 2a19.6 19.6 0 0 0 6-3c.4-5.1-.7-9.6-3.5-13.6ZM8.7 15.3c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.1 1 2.1 2.3-.9 2.3-2.1 2.3Zm6.6 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.1 1 2.1 2.3-.9 2.3-2.1 2.3Z"/></svg>
-            <span data-discord-label>Discord beitreten</span>
-          </a>
+          <a class="btn" data-discord href="https://dsc.gg/luchsnetzwerk">Discord beitreten</a>
         </div>
       </div>
     </section>
@@ -292,20 +245,22 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-grid">
-        <a class="brand" href="index.html"><img src="assets/luchs.svg" alt="" width="34" height="34">LUCHS</a>
-        <nav>
-          <a href="index.html#joinen">Joinen</a>
-          <a href="vote.html">Voten</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="index.html"><img src="assets/luchs.svg" alt="" width="30" height="30">LUCHS</a>
+          <p class="footer-claim">Schleich dich rein. Werde Teil vom Rudel.</p>
+          <div class="footer-ip"><span class="mono" data-luchs="adresse">practically-each.tun.ply.gg:60202</span><button class="link-btn" data-copy type="button"><span data-copy-label>Kopieren</span></button></div>
+        </div>
+        <nav class="footer-cols" aria-label="Seitenübersicht">
+          <div><h2>Spielen</h2><a href="index.html#joinen">So joinst du</a><a href="citybuild.html">CityBuild</a><a href="minigames.html">Minigames</a><a href="lobby.html">Lobby</a></div>
+          <div><h2>Netzwerk</h2><a href="features.html">Features</a><a href="vote.html">Voten</a><a href="status.html">Serverstatus</a><a href="changelog.html">Changelog</a></div>
+          <div><h2>Community</h2><a data-discord href="https://dsc.gg/luchsnetzwerk">Discord</a><a href="team.html">Team</a><a href="regeln.html">Regeln</a><a href="kontakt.html">Kontakt</a></div>
+          <div><h2>Rechtliches</h2><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
         </nav>
       </div>
-      <p class="disclaimer">© <span id="jahr">2026</span> Luchs-Netzwerk. Kein offizielles Minecraft-Produkt. Nicht von Mojang oder Microsoft genehmigt oder mit Mojang oder Microsoft verbunden. „Minecraft“ ist eine Marke von Mojang Synergies AB.</p>
+      <p class="disclaimer">© <span data-jahr>2026</span> Luchs-Netzwerk · Kein offizielles Minecraft-Produkt. Nicht von Mojang oder Microsoft genehmigt oder mit Mojang oder Microsoft verbunden. „Minecraft“ ist eine Marke von Mojang Synergies AB.</p>
     </div>
   </footer>
-  <script src="assets/site.js?v=202611021045"></script>
-  <script src="assets/anim.js?v=202611021045"></script>
+  <div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

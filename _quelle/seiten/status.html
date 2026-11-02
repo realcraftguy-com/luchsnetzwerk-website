@@ -1,0 +1,37 @@
+<!--{"titel": "Serverstatus – Luchs-Netzwerk", "beschreibung": "Live-Status des Luchs-Netzwerks: online oder offline, Spieler gerade online, unterstützte Versionen und welche Server immer laufen.", "nav": "status", "prio": "0.6", "klasse": "seite-status"}-->
+    <section class="seitenkopf">
+      <div class="wrap">
+        <span class="eyebrow ein">Serverstatus</span>
+        <h1 class="display ein" style="--d:.1s">Läuft Luchs gerade?</h1>
+        <p class="lead ein" style="--d:.2s">Live abgefragt über <a class="accent" href="https://mcstatus.io" target="_blank" rel="noopener">mcstatus.io</a>. Die Seite aktualisiert sich jede Minute von selbst.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:1rem">
+      <div class="wrap">
+        <div class="status-gross reveal" data-staffel aria-live="polite">
+          <div class="status-feld" data-live-feld><small>Status</small><b data-live="zustand">…</b></div>
+          <div class="status-feld"><small>Spieler online</small><b><span data-live="spieler">–</span> <span class="muted" style="font-size:.5em">/ <span data-live="max">–</span></span></b><div class="balken"><i data-live-balken></i></div></div>
+          <div class="status-feld"><small>Version</small><b>26.2</b><p class="muted" style="margin-top:.5rem;font-size:.875rem">26.3 wird ebenfalls angenommen</p></div>
+          <div class="status-feld"><small>Zuletzt geprüft</small><b data-live="geprueft">–</b><p style="margin-top:.6rem"><button class="link-btn" type="button" data-status-neu>Jetzt neu prüfen</button></p></div>
+        </div>
+        <div class="reveal" style="margin-top:2.5rem">
+          <h2 class="h4">Nachricht des Servers</h2>
+          <div class="motd" data-live="motd">–</div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-dunkel">
+      <div class="wrap">
+        <div class="kopf reveal">
+          <span class="eyebrow">Server im Netzwerk</span>
+          <h2 class="h2">Was immer läuft – und was startet, wenn du kommst.</h2>
+          <p class="lead">Damit der Server sparsam bleibt, starten CityBuild und Minigames erst, wenn jemand sie betritt. Du wartest dann kurz in der Lobby und wirst automatisch verbunden.</p>
+        </div>
+        <div class="server-liste reveal">
+          <div class="server-zeile"><h3 class="h4">Lobby · Luchsinsel</h3><span class="tag tag-ok">Läuft immer</span><p>Hier kommst du an, sobald der Server online ist.</p></div>
+          <div class="server-zeile"><h3 class="h4">CityBuild · Luchsstadt</h3><span class="tag">Startet bei Bedarf</span><p>Start dauert etwa 15 bis 20 Sekunden. Nach 10 Minuten ohne Spieler geht er wieder schlafen.</p></div>
+          <div class="server-zeile"><h3 class="h4">Minigames · Luchs-Arena</h3><span class="tag">Startet bei Bedarf</span><p>Wie CityBuild: kurz warten, dann geht es los.</p></div>
+        </div>
+        <p class="hinweis reveal">Der Status oben zeigt, ob der Zugang zum Netzwerk erreichbar ist. Ob CityBuild oder Minigames gerade schlafen, sieht man von außen nicht. Bei Problemen hilft der <a data-discord href="https://dsc.gg/luchsnetzwerk">Discord</a>.</p>
+      </div>
+    </section>
