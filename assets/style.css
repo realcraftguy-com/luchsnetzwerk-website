@@ -217,7 +217,7 @@ p + p { margin-top: 1em; }
 .buehne-bild { overflow: visible; }
 .buehne-bild picture:active, .belohnung picture:active { z-index: 5; }
 
-: schwebt unten, sobald der Hero weg ist ──────────────── */
+/* ── Live-Dock: schwebt unten, sobald der Hero weg ist ──────────────── */
 .dock {
   position: fixed; left: 50%; bottom: calc(0.9rem + env(safe-area-inset-bottom)); z-index: 45;
   display: flex; align-items: center; gap: 0.9rem;
