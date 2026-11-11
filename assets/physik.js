@@ -277,4 +277,54 @@
     s.ziel = 1;
     bewegen((dt) => { const a = s.schritt(dt); el.style.scale = a ? s.wert.toFixed(4) : ""; return a; });
   });
+
+  // ── 9. Gummiband am Seitenrand wie auf dem iPhone ──────────────────────────────────
+  // Mausrad am Rand überdehnt die Seite, schneller Scroll gegen den Rand prallt mit seinem Tempo ab.
+  // Mac-Trackpads und Touchgeräte federn schon selbst; dort nicht doppeln.
+  if (fein && !/Mac/.test(navigator.platform)) {
+    const flaechen = [document.querySelector("main"), document.querySelector(".footer")].filter(Boolean);
+    const pille = document.querySelector(".nav-inner");
+    const rand = new Feder(0, { daempfung: 0.5, ansprech: 0.5 });
+    // Die Nav-Pille hängt dem Scrolltempo kurz hinterher und staucht sich dabei wie ein Tropfen
+    const zug = new Feder(0, { daempfung: 0.55, ansprech: 0.45 });
+    let roh = 0, loslassen, ruhig, letztY = scrollY, letztT = performance.now(), tempo = 0;
+    const maxY = () => document.documentElement.scrollHeight - innerHeight;
+    const zeigen = () => {
+      const r = Math.abs(rand.wert) < 0.2 ? "" : `0 ${rand.wert.toFixed(1)}px`;
+      flaechen.forEach((f) => (f.style.translate = r));
+      if (pille) {
+        const z = zug.wert;
+        pille.style.translate = `0 ${(z * 10 + rand.wert * 0.25).toFixed(2)}px`;
+        pille.style.scale = `${(1 + Math.abs(z) * 0.04).toFixed(4)} ${(1 - Math.abs(z) * 0.1).toFixed(4)}`;
+      }
+    };
+    const lauf = (dt) => { const a = rand.schritt(dt) | zug.schritt(dt); zeigen(); return a; };
+
+    addEventListener("wheel", (e) => {
+      const d = e.deltaY * (e.deltaMode === 1 ? 16 : 1);
+      const oben = scrollY <= 0 && d < 0, unten = scrollY >= maxY() - 1 && d > 0;
+      if (!oben && !unten) return;
+      roh -= d;
+      rand.setzen(gummiband(roh, innerHeight));
+      bewegen(lauf);
+      clearTimeout(loslassen);
+      // Kein Raddreh mehr: Seite schwingt zurück an ihren Platz
+      loslassen = setTimeout(() => { roh = 0; rand.ziel = 0; bewegen(lauf); }, 140);
+    }, { passive: true });
+
+    addEventListener("scroll", () => {
+      const t = performance.now(), dt = (t - letztT) / 1000;
+      const v = (scrollY - letztY) / Math.max(dt, 0.004);
+      tempo = dt < 0.15 ? v * 0.6 + tempo * 0.4 : v;
+      const m = maxY();
+      // Mit Schwung am Rand angekommen: Tempo wird zum Abprall in die Gegenrichtung
+      if (scrollY <= 0 && letztY > 0 && tempo < -500) { rand.v = Math.min(-tempo * 0.45, 3200); rand.ziel = 0; }
+      else if (scrollY >= m - 1 && letztY < m - 1 && tempo > 500) { rand.v = -Math.min(tempo * 0.45, 3200); rand.ziel = 0; }
+      zug.ziel = Math.max(-1, Math.min(1, -tempo / 3000));
+      clearTimeout(ruhig);
+      ruhig = setTimeout(() => { tempo = 0; zug.ziel = 0; bewegen(lauf); }, 90);
+      letztY = scrollY; letztT = t;
+      bewegen(lauf);
+    }, { passive: true });
+  }
 })();
