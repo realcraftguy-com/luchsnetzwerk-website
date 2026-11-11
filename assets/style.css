@@ -508,6 +508,13 @@ a.vote-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgb
 .rolle .farbe { display: block; width: 2rem; height: 0.3rem; border-radius: 1rem; background: var(--c, var(--accent)); margin-bottom: 1.1rem; }
 .rolle p { color: var(--text-2); font-size: 0.9375rem; margin-top: 0.45rem; }
 .rolle .btn { margin-top: auto; }
+.mitglieder { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr)); }
+.mitglied { display: flex; gap: 1.5rem; align-items: center; padding: 1.75rem; border-radius: var(--r); }
+.mitglied img { width: 5.5rem; height: auto; flex: none; filter: drop-shadow(0 14px 18px rgb(0 0 0 / .35)); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+.mitglied:hover img { transform: translateY(-6px) rotate(-3deg); }
+.mitglied .rang { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--c); padding: .25rem .65rem; border-radius: 2rem; background: color-mix(in srgb, var(--c) 16%, transparent); }
+.mitglied h2 { margin: .5rem 0 .4rem; }
+.mitglied p { color: var(--text-2); font-size: .9375rem; }
 .rolle p + .btn { margin-top: 1.5rem; }
 .prose { padding-bottom: 6rem; }
 .prose h2 { font-size: 1.375rem; letter-spacing: -0.02em; margin: 3rem 0 0.8rem; }
