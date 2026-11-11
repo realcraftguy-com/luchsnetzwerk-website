@@ -170,3 +170,13 @@ navBtn?.addEventListener("click", () => navSetzen(!document.body.classList.conta
 $$(".nav-links a").forEach((a) => a.addEventListener("click", () => navSetzen(false)));
 addEventListener("keydown", (e) => e.key === "Escape" && navSetzen(false));
 matchMedia("(min-width: 901px)").addEventListener("change", (e) => e.matches && navSetzen(false));
+
+// Trailer: Klick spielt das Video von vorn mit Ton und Bedienleiste
+$$("[data-trailer-ton]").forEach((b) => b.addEventListener("click", () => {
+  const held = document.querySelector(".trailer-held"), v = held.querySelector("video");
+  held.classList.add("mit-ton");
+  held.scrollIntoView({ behavior: "smooth" });
+  Object.assign(v, { muted: false, loop: false, controls: true, currentTime: 0 });
+  v.play();
+  v.addEventListener("ended", () => held.classList.remove("mit-ton"), { once: true });
+}));

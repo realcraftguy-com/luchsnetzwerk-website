@@ -612,3 +612,25 @@ html.no-js .kino, html.wenig-bewegung .kino { height: auto; }
 html.no-js .kino-buehne, html.wenig-bewegung .kino-buehne { position: relative; min-height: 80vh; }
 html.no-js .kino-maske, html.wenig-bewegung .kino-maske { display: none; }
 html.no-js .kino-text, html.wenig-bewegung .kino-text { opacity: 1; transform: none; }
+
+/* ── Trailer ── */
+.trailer-held { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: clip; isolation: isolate; }
+.trailer-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.trailer-held::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, var(--bg), transparent 50%); transition: opacity .6s var(--ease); }
+.trailer-held.mit-ton::after, .trailer-held.mit-ton .trailer-inhalt { opacity: 0; pointer-events: none; }
+.trailer-inhalt { padding-bottom: clamp(3rem, 10vh, 6rem); transition: opacity .6s var(--ease); }
+.trailer-inhalt .btn { margin-top: 1.5rem; }
+.trailer-liste { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); }
+.trailer-karte { position: relative; aspect-ratio: 16 / 10; border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 1rem; text-align: left; color: var(--text); background: var(--bg-2); border: 0; font: inherit; cursor: pointer; box-shadow: inset 0 0 0 1px var(--line); }
+.trailer-karte img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: transform .6s var(--ease); }
+.trailer-karte { isolation: isolate; }
+.trailer-karte::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgb(11 10 9 / .9), transparent 70%); }
+.trailer-karte:hover img { transform: scale(1.06); }
+.trailer-karte .nr { position: absolute; top: .5rem; right: .9rem; font-size: 3.5rem; font-weight: 900; line-height: 1; opacity: .9; color: var(--accent); }
+.trailer-karte .titel { font-weight: 700; }
+.trailer-karte .info { font-size: .8125rem; color: var(--text-2); }
+.trailer-karte.gesperrt { cursor: default; }
+.trailer-karte.gesperrt img { filter: blur(10px) grayscale(.6) brightness(.6); transform: scale(1.15); }
+.trailer-karte.gesperrt .nr { color: var(--text-3); }
+.trailer-quelle { margin-top: 2rem; font-size: .8125rem; color: var(--text-3); }
+.trailer-quelle a { color: inherit; text-decoration: underline; }

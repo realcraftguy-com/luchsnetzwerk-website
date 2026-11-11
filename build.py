@@ -19,6 +19,7 @@ AKTUELL = ' aria-current="page"'
 NAV = [
     ("modi", "index.html#modi", "Spielmodi"),
     ("features", "features.html", "Features"),
+    ("trailer", "trailer.html", "Trailer"),
     ("voten", "vote.html", "Voten"),
     ("status", "status.html", "Status"),
     ("regeln", "regeln.html", "Regeln"),
