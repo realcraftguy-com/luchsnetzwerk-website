@@ -58,6 +58,35 @@
     reveals.forEach((el) => io.observe(el));
   }
 
+  // Kino-Zoom: in den Schriftzug hineinzoomen, bis nur noch das Bild bleibt
+  const kino = document.querySelector(".kino");
+  if (kino && reduce) document.documentElement.classList.add("wenig-bewegung");
+  else if (kino) {
+    const maske = kino.querySelector(".kino-maske"), text = maske.querySelector("text");
+    const bild = kino.querySelector(".kino-bild"), stufe = (a, b, p) => Math.min(1, Math.max(0, (p - a) / (b - a)));
+    // Zoompunkt mitten im Strich des „L“, damit der Buchstabe am Ende den ganzen Schirm füllt
+    const ursprung = () => {
+      const r = text.getExtentOfChar(0), m = maske.getScreenCTM(), box = maske.getBoundingClientRect();
+      const pt = new DOMPoint(r.x + r.width * 0.2, r.y + r.height * 0.55).matrixTransform(m);
+      maske.style.transformOrigin = `${pt.x - box.left}px ${pt.y - box.top}px`;
+    };
+    let geplant = false;
+    const zeichnen = () => {
+      geplant = false;
+      const r = kino.getBoundingClientRect(), p = stufe(0, r.height - innerHeight, -r.top);
+      const z = stufe(0.04, 0.5, p);
+      maske.style.transform = `scale(${80 ** (z * z)})`;
+      maske.style.opacity = 1 - stufe(0.42, 0.52, p);
+      bild.style.setProperty("--kb", 1.3 - 0.3 * stufe(0, 0.7, p));
+      bild.style.setProperty("--kd", 0.6 * stufe(0.85, 1, p));
+      kino.style.setProperty("--kt", stufe(0.55, 0.72, p));
+    };
+    const planen = () => { if (!geplant) { geplant = true; requestAnimationFrame(zeichnen); } };
+    document.fonts.ready.then(() => { ursprung(); zeichnen(); });
+    addEventListener("scroll", planen, { passive: true });
+    addEventListener("resize", () => { ursprung(); planen(); });
+  }
+
   // Pixel-Konfetti wie kleine Minecraft-Blöcke
   if (reduce) return;
   const farben = ["#f2a33a", "#e8562a", "#ffd257", "#5fd38a", "#7a4a26", "#f5f1ea"];
