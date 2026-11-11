@@ -23,7 +23,7 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
   --wrap: 76rem;
-  --nav-h: 3.5rem;
+  --nav-h: 4.5rem;
   color-scheme: dark;
 }
 
@@ -72,16 +72,9 @@ h1, h2, h3, h4 { margin: 0; font-weight: 700; color: var(--text); }
 p { margin: 0; }
 p + p { margin-top: 1em; }
 
-/* ── Navigation: schwebende Glasleiste ──────────────────────────────── */
-.nav {
-  position: fixed; inset: 0 0 auto; z-index: 50;
-  height: var(--nav-h);
-  background: rgba(11, 10, 9, 0.62);
-  backdrop-filter: saturate(170%) blur(22px);
-  -webkit-backdrop-filter: saturate(170%) blur(22px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner { display: flex; align-items: center; gap: 1.25rem; height: 100%; }
+/* ── Navigation: schwebende Glas-Pille ─────────────────────────────── */
+.nav { position: fixed; inset: 0.6rem 0 auto; z-index: 50; pointer-events: none; }
+.nav-inner { pointer-events: auto; display: flex; align-items: center; gap: 1.25rem; height: 3.25rem; width: min(68rem, 100% - 1.25rem); margin-inline: auto; padding: 0 0.45rem 0 1.1rem; border-radius: 999px; }
 .brand { display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 750; font-size: 0.9375rem; letter-spacing: 0.14em; text-decoration: none; }
 .brand img { width: 1.75rem; height: 1.75rem; transition: transform 0.6s var(--ease); }
 .brand:hover img { transform: rotate(-8deg) scale(1.06); }
@@ -115,16 +108,17 @@ p + p { margin-top: 1em; }
   .nav-discord span { display: none; }
   .nav-discord { padding-inline: 0.65rem; }
   .nav-links {
-    position: fixed; inset: var(--nav-h) 0 auto; height: calc(100dvh - var(--nav-h));
-    margin: 0; padding: 1.5rem 1.5rem 3rem;
+    position: absolute; top: calc(100% + 0.6rem); left: 0; right: 0;
+    margin: 0; padding: 0.75rem 1.5rem 1rem; border-radius: 1.75rem;
     flex-direction: column; align-items: stretch; gap: 0;
-    background: rgba(11, 10, 9, 0.97);
+    background: rgba(22, 19, 16, 0.94);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 30px 60px -20px #000;
     opacity: 0; visibility: hidden; transition: opacity 0.3s var(--ease), visibility 0s 0.3s;
   }
   .nav-open .nav-links { opacity: 1; visibility: visible; transition: opacity 0.3s var(--ease); }
   .nav-links a {
-    font-size: 1.75rem; font-weight: 650; letter-spacing: -0.02em; color: var(--text);
-    padding: 0.7rem 0; border-radius: 0; border-bottom: 1px solid var(--line);
+    font-size: 1.5rem; font-weight: 650; letter-spacing: -0.02em; color: var(--text);
+    padding: 0.65rem 0; border-radius: 0; border-bottom: 1px solid var(--line);
     opacity: 0; transform: translateY(-8px);
     transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
   }
@@ -135,7 +129,7 @@ p + p { margin-top: 1em; }
   .nav-open .nav-links a:nth-child(4) { transition-delay: 0.12s; }
   .nav-open .nav-links a:nth-child(5) { transition-delay: 0.16s; }
   .nav-links a[aria-current="page"] { color: var(--accent); }
-  body.nav-open { overflow: hidden; }
+  .nav-links a:last-child { border-bottom: 0; }
 }
 @media (max-width: 420px) { .nav-actions > .btn:not(.nav-discord) { display: none; } }
 
@@ -169,23 +163,58 @@ p + p { margin-top: 1em; }
 .link-btn { border: 0; background: none; padding: 0; cursor: pointer; color: var(--accent); font-weight: 600; font-size: 0.875rem; }
 .link-btn:hover { text-decoration: underline; }
 
-/* ── Glas ───────────────────────────────────────────────────────────── */
+/* ── Liquid Glass ───────────────────────────────────────────────────
+   Durchsichtige Schicht mit Weichzeichner, Glanzkante oben, Lichtrand und einem
+   Glanzpunkt, der dem Zeiger folgt (--mx/--my aus anim.js). In Chromium bricht
+   .glass-linse den Hintergrund zusätzlich über den SVG-Filter #lg-linse. */
 .glass {
-  position: relative;
-  background: var(--glass);
-  backdrop-filter: blur(26px) saturate(160%);
-  -webkit-backdrop-filter: blur(26px) saturate(160%);
+  position: relative; isolation: isolate;
+  background: linear-gradient(145deg, rgba(255, 248, 238, 0.1), rgba(255, 248, 238, 0.025) 55%, rgba(255, 248, 238, 0.06));
+  backdrop-filter: blur(18px) saturate(185%) brightness(1.06);
+  -webkit-backdrop-filter: blur(18px) saturate(185%) brightness(1.06);
   border-radius: var(--r);
-  box-shadow: inset 0 0 0 1px var(--line-2), inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 30px 60px -30px rgba(0, 0, 0, 0.8);
-  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 24px 60px -24px rgba(0, 0, 0, 0.75),
+    0 2px 8px -2px rgba(0, 0, 0, 0.4);
 }
-/* Lichtkante, die beim Hovern über das Glas gleitet */
-.glass.sheen::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.07) 50%, transparent 65%);
-  transform: translateX(-100%); transition: transform 1.1s var(--ease);
+.glass::before, .glass::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+/* Glanzpunkt unter dem Zeiger */
+.glass::before {
+  z-index: -1;
+  background: radial-gradient(16rem circle at var(--mx, 25%) var(--my, -20%), rgba(255, 244, 228, 0.18), transparent 60%);
+  transition: opacity 0.4s var(--ease);
 }
-.glass.sheen:hover::after { transform: translateX(100%); }
+/* Lichtrand: hell oben links, dunkel in der Mitte, wieder hell unten rechts */
+.glass::after {
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0) 55%, rgba(255, 222, 180, 0.28) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.lg-refrakt .glass-linse {
+  backdrop-filter: url(#lg-linse) blur(10px) saturate(190%) brightness(1.06);
+  -webkit-backdrop-filter: url(#lg-linse) blur(10px) saturate(190%) brightness(1.06);
+}
+.lg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ── Live-Dock: schwebt unten, sobald der Hero weg ist ──────────────── */
+.dock {
+  position: fixed; left: 50%; bottom: calc(0.9rem + env(safe-area-inset-bottom)); z-index: 45;
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.45rem 0.45rem 0.45rem 1.1rem; border-radius: 999px;
+  translate: -50% 0; max-width: calc(100% - 1.25rem);
+}
+.dock .mono { font-size: 0.8125rem; font-weight: 600; white-space: nowrap; color: var(--text-2); }
+.dock .btn { padding: 0.55rem 1rem; font-size: 0.8125rem; }
+.nav-open .dock { opacity: 0; pointer-events: none; }
+@media (max-width: 560px) { .dock .mono { display: none; } }
+@supports (animation-timeline: scroll()) {
+  .dock { animation: dock-ein linear both; animation-timeline: scroll(root); animation-range: 70vh 95vh; }
+  @keyframes dock-ein { from { opacity: 0; transform: translateY(140%) scale(0.9); visibility: hidden; } }
+}
 
 /* ── Hero ───────────────────────────────────────────────────────────── */
 .hero { position: relative; min-height: 100svh; display: grid; align-items: end; padding: calc(var(--nav-h) + 3rem) 0 clamp(3rem, 8vh, 6rem); isolation: isolate; overflow: clip; }
@@ -242,6 +271,40 @@ p + p { margin-top: 1em; }
 .kopf .lead { margin-top: 1.25rem; }
 .kopf-mitte { text-align: center; margin-inline: auto; }
 .kopf-mitte .lead { margin-inline: auto; }
+
+/* ── Scroll-Tour: Bühne bleibt stehen, Glaskarten ziehen darüber ───── */
+.tour { position: relative; }
+.tour-buehne { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.tour-bild { position: absolute; inset: 0; opacity: 0; transform: scale(1.08); transition: opacity 1.1s var(--ease), transform 1.6s var(--ease); }
+.tour-bild picture, .tour-bild img { width: 100%; height: 100%; object-fit: cover; }
+.tour-buehne::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11, 10, 9, 0.55), rgba(11, 10, 9, 0) 60%), linear-gradient(0deg, var(--bg), transparent 18%, transparent 82%, var(--bg)); }
+.tour[data-aktiv="0"] .tour-bild[data-i="0"], .tour[data-aktiv="1"] .tour-bild[data-i="1"],
+.tour[data-aktiv="2"] .tour-bild[data-i="2"], .tour[data-aktiv="3"] .tour-bild[data-i="3"] { opacity: 1; transform: none; }
+.tour-schritte { position: relative; margin-top: -100svh; }
+.tour-schritt { min-height: 100svh; display: flex; align-items: center; width: min(var(--wrap), 100% - 2.5rem); margin-inline: auto; }
+.tour-karte { max-width: 30rem; padding: clamp(1.75rem, 3.5vw, 2.5rem); border-radius: var(--r-l); }
+.tour-karte p { color: rgba(245, 241, 234, 0.82); margin: 1rem 0 1.25rem; }
+.tour-karte .modus-tags { margin: 0 0 1.25rem; }
+@media (max-width: 760px) { .tour-schritt { align-items: flex-end; padding-bottom: 12vh; } }
+
+/* ── Map-Galerie: seitlich wischen, rastet ein ─────────────────────── */
+.galerie { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem max(1.25rem, (100% - var(--wrap)) / 2) 1.5rem; scrollbar-width: none; overscroll-behavior-x: contain; }
+.galerie::-webkit-scrollbar { display: none; }
+.galerie-karte { position: relative; flex: 0 0 min(85vw, 34rem); aspect-ratio: 16 / 10; border-radius: var(--r-l); overflow: hidden; scroll-snap-align: center; box-shadow: inset 0 0 0 1px var(--line); text-decoration: none; }
+.galerie-karte { background: radial-gradient(70% 70% at 50% 45%, var(--bg-3), var(--bg-2)); }
+.galerie-karte picture, .galerie-karte img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.4); transition: transform 1.2s var(--ease); }
+.galerie-karte:hover img { transform: scale(1.5); }
+.galerie-text { position: absolute; left: 1rem; bottom: 1rem; display: inline-flex; gap: 0.5rem; align-items: baseline; padding: 0.6rem 1rem; border-radius: 999px; font-size: 0.875rem; color: var(--text-2); }
+.galerie-text b { color: var(--text); font-size: 1rem; }
+
+/* ── Glas-Kacheln vor einem Render ─────────────────────────────────── */
+.glas-buehne { position: relative; isolation: isolate; overflow: clip; }
+.glas-hintergrund { position: absolute; inset: 0; z-index: -1; }
+.glas-hintergrund picture, .glas-hintergrund img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+.glas-hintergrund::after { content: ""; position: absolute; inset: 0; background: linear-gradient(var(--bg), rgba(11, 10, 9, 0.25) 25%, rgba(11, 10, 9, 0.25) 75%, var(--bg)); }
+.punkte-glas { gap: 1rem; background: none; box-shadow: none; overflow: visible; border-radius: 0; }
+.punkte-glas .punkt { background: linear-gradient(145deg, rgba(255, 248, 238, 0.1), rgba(255, 248, 238, 0.03)); border-radius: var(--r); }
+.punkte-glas .punkt p { color: rgba(245, 241, 234, 0.78); }
 
 /* ── Kennzahlen ─────────────────────────────────────────────────────── */
 .kennzahlen { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
@@ -453,7 +516,7 @@ a.vote-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgb
 .leer-seite img { width: 8rem; margin: 0 auto 2rem; animation: schweben 6s ease-in-out infinite; }
 
 /* ── Footer ─────────────────────────────────────────────────────────── */
-.footer { border-top: 1px solid var(--line); padding: 4rem 0 2.5rem; font-size: 0.875rem; color: var(--text-3); background: var(--bg); }
+.footer { border-top: 1px solid var(--line); padding: 4rem 0 6.5rem; font-size: 0.875rem; color: var(--text-3); background: var(--bg); }
 .footer-top { display: grid; grid-template-columns: 1.1fr 2fr; gap: 3rem; }
 .footer-claim { margin-top: 1rem; color: var(--text-2); }
 .footer-ip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: 1rem; color: var(--text-2); }
@@ -466,7 +529,7 @@ a.vote-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgb
 
 /* Mitteilung (Kopieren) */
 .toast {
-  position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom)); z-index: 90;
+  position: fixed; left: 50%; bottom: calc(5.5rem + env(safe-area-inset-bottom)); z-index: 90;
   padding: 0.7rem 1.1rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600;
   background: rgba(30, 26, 22, 0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   box-shadow: inset 0 0 0 1px var(--line-2), 0 20px 40px -20px #000;
@@ -494,8 +557,8 @@ a.vote-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgb
     /* Bildflächen: Parallax innerhalb der Fläche */
     .modus img, .seitenkopf-bild > picture img { animation: parallax linear both; animation-timeline: view(); }
     @keyframes parallax { from { transform: translateY(-5%) scale(1.12); } to { transform: translateY(5%) scale(1.12); } }
-    .nav { animation: nav-dicht linear both; animation-timeline: scroll(root); animation-range: 0 30vh; }
-    @keyframes nav-dicht { from { background-color: rgba(11, 10, 9, 0.15); border-bottom-color: transparent; } }
+    .nav-inner { animation: nav-schmal linear both; animation-timeline: scroll(root); animation-range: 0 40vh; }
+    @keyframes nav-schmal { from { width: min(76rem, 100% - 1.25rem); } to { width: min(60rem, 100% - 1.25rem); } }
   }
 }
 
@@ -505,7 +568,7 @@ a.vote-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgb
   .reveal { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .nav, .glass, .toast, .btn-glass, .nav-links { background: var(--bg-2) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .glass, .toast, .btn-glass, .nav-links { background: var(--bg-2) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 }
 @media (prefers-contrast: more) {
   :root { --line: rgba(255, 240, 222, 0.32); --line-2: rgba(255, 240, 222, 0.5); --text-2: #e2d8cc; --text-3: #c2b6a8; }

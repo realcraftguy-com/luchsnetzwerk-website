@@ -5,6 +5,37 @@
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Lichtbrechung per SVG-Filter in backdrop-filter kann nur Chromium; Safari und Firefox behalten den Weichzeichner
+  if (navigator.userAgentData?.brands?.some((b) => b.brand === "Chromium")) document.documentElement.classList.add("lg-refrakt");
+
+  // Glanzpunkt auf Glasflächen folgt dem Zeiger
+  if (matchMedia("(hover: hover)").matches) {
+    let glas = null, x = 0, y = 0, geplant = false;
+    addEventListener("pointermove", (e) => {
+      glas = e.target.closest?.(".glass");
+      x = e.clientX; y = e.clientY;
+      if (glas && !geplant) {
+        geplant = true;
+        requestAnimationFrame(() => {
+          geplant = false;
+          if (!glas) return;
+          const r = glas.getBoundingClientRect();
+          glas.style.setProperty("--mx", `${x - r.left}px`);
+          glas.style.setProperty("--my", `${y - r.top}px`);
+        });
+      }
+    }, { passive: true });
+  }
+
+  // Scroll-Tour: der Schritt in der Bildmitte bestimmt das Bild auf der Bühne
+  document.querySelectorAll(".tour").forEach((tour) => {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && (tour.dataset.aktiv = e.target.dataset.i)),
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    tour.querySelectorAll(".tour-schritt").forEach((s) => io.observe(s));
+  });
+
   // Raster: Kinder nacheinander einblenden
   document.querySelectorAll("[data-staffel]").forEach((g) => {
     [...g.children].forEach((c, n) => c.style.setProperty("--st", `${Math.min(n, 6) * 0.07}s`));
